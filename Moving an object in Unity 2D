@@ -1,0 +1,12 @@
+   void Start()
+    {
+    //To move any object with any velocity in any direction
+        const float MinImpulseF= 3f;      //minimum velocity
+        const float MaxImpulseF = 5f;     //maximum velocity
+        float angle = Random.Range(0, 2 * Mathf.PI);  // randomly choosing the direction in which it will move choosing the angle
+        UnityEngine.Vector2 direction = new UnityEngine.Vector2(Mathf.Cos(angle), Mathf.Sin(angle));//Setting up the direction
+        float magnitude= Random.Range(MinImpulseF, MaxImpulseF);   // randomly choose the velocity at which it will go between min and max
+        GetComponent<Rigidbody2D>().AddForce(         //Main line that allows game object to move 
+            direction * magnitude,                    //Rigidbody is physics component in Unity and AddForce is one of the method of it
+            ForceMode2D.Impulse);                     //It has 2 parameters 
+    }
